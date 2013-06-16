@@ -1,0 +1,22 @@
+
+To run full tests, and more examples see 
+http://code.google.com/p/double-conversion/
+
+Here is a small sample using the library:
+
+to compile,
+
+clang++ -std=c++11 -stdlib=libc++ -lc++ -o cctest \
+	-I/usr/local/include/double-conversion -L/usr/local/lib \
+	-ldouble-conversion cctest.cc testdbl.cc
+
+to run,
+
+list available tests:
+
+./cctest --list 
+
+run a test:
+
+./cctest StringToFloatVarious
+
