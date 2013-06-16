@@ -1,3 +1,8 @@
-.sconsign.dblite
-run_tests
 *.o
+*.so
+*.la
+*.a
+autom4te.cache
+save-Makefile
+src/save-Makefile
+config.log

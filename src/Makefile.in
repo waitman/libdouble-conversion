@@ -1,0 +1,20 @@
+
+all:
+	libtool --mode=compile ${CC} -O -c bignum.cc
+	libtool --mode=compile ${CC} -O -c bignum-dtoa.cc
+	libtool --mode=compile ${CC} -O -c cached-powers.cc
+	libtool --mode=compile ${CC} -O -c diy-fp.cc
+	libtool --mode=compile ${CC} -O -c double-conversion.cc
+	libtool --mode=compile ${CC} -O -c fast-dtoa.cc
+	libtool --mode=compile ${CC} -O -c fixed-dtoa.cc
+	libtool --mode=compile ${CC} -O -c strtod.cc
+	libtool --mode=link ${CC} -O -o libdouble-conversion.la \
+						bignum.lo \
+						bignum-dtoa.lo \
+						cached-powers.lo \
+						diy-fp.lo \
+						double-conversion.lo \
+						fast-dtoa.lo \
+						fixed-dtoa.lo \
+						strtod.lo \
+					-rpath @prefix@/lib

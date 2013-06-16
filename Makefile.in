@@ -1,0 +1,36 @@
+all:
+	make -C src all
+clean:
+	rm -f src/*.o
+	rm -f src/*.la
+	rm -f src/*.lo
+	rm -Rf src/.libs
+
+distclean:
+	rm -f src/*.o
+	rm -f src/*.la
+	rm -f src/*.lo
+	rm -Rf src/.libs
+	rm -f Makefile
+	rm -f src/Makefile
+
+install:
+	${INSTALL} -m 0755 -g wheel -o root src/.libs/libdouble-conversion.so.0 @prefix@/lib
+	${INSTALL} -m 0755 -g wheel -o root src/.libs/libdouble-conversion.so @prefix@/lib
+	mkdir -p @prefix@/include/double-conversion
+	${INSTALL} -m 0644 -g wheel -o root src/bignum-dtoa.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/double-conversion.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/strtod.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/bignum.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/fast-dtoa.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/utils.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/cached-powers.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/fixed-dtoa.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/diy-fp.h @prefix@/include/double-conversion/
+	${INSTALL} -m 0644 -g wheel -o root src/ieee.h @prefix@/include/double-conversion/
+
+deinstall:
+	rm -f @prefix@/lib/libdouble-conversion.so.0
+	rm -f @prefix@/lib/libdouble-conversion.so
+	rm -Rf @prefix@/include/double-conversion/
+

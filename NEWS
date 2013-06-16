@@ -1,0 +1,2 @@
+2013-06-16 Waitman Gobble <waitman@waitman.net>
+	replace scons build with makefile/libtool build, build shared library
